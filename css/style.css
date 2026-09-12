@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  color: #f064a3;
+  color: #4a2803;
   background: #f6f0e8;
   font-family: Arial, sans-serif;
 }
@@ -14,7 +14,7 @@ body {
 .hero {
   padding: 36px;
   color: white;
-  background: #f064a3;
+  background: #4a2803;
   border-radius: 24px;
 }
 
@@ -30,10 +30,27 @@ body {
 
 button {
   padding: 12px 18px;
-  color: #7687cb;
+  color:#4a2803;
   font-weight: 700;
   cursor: pointer;
   background: white;
   border: 0;
   border-radius: 999px;
+}
+
+.jam-lokasi {
+    margin-top: 40px;
+}
+
+.jamlok-container {
+    display: flex;
+    gap: 20px;
+}
+
+.jamlok {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #eee;
 }
