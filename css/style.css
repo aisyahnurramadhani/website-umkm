@@ -1,64 +1,18 @@
 body {
-  margin: 0;
-  color: #4a2803;
-  background: #f6f0e8;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    color: #4a2803;
+    background: #f6f0e8;
+    font-family: Arial, sans-serif;
 }
 
 .page {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 32px 20px;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 20px;
 }
 
-.hero {
-  padding: 36px;
-  color: white;
-  background: #4a2803;
-  border-radius: 24px;
-}
 
-.hero img {
-  display: block;
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  margin: 24px auto 0;
-  border-radius: 16px;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.products {
-  padding-left: 1.2rem;
-}
-
-button {
-  padding: 12px 18px;
-  color:#4a2803;
-  font-weight: 700;
-  cursor: pointer;
-  background: white;
-  border: 0;
-  border-radius: 999px;
-}
-
-.skip-link {
-    position: absolute;
-    left: -9999px;
-    padding: 8px 12px;
-    color: white;
-    background: #2f2118;
-}
-
-.skip-link:focus {
-    top: 8px;
-    left: 8px;
-}
+/* HEADER */
 
 .site-header {
     padding: 18px 20px;
@@ -107,27 +61,97 @@ button {
     font-weight: 800;
 }
 
+
+/* SKIP LINK */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    padding: 8px 12px;
+    color: white;
+    background: #2f2118;
+}
+
+.skip-link:focus {
+    top: 8px;
+    left: 8px;
+}
+
+
+/* FOCUS */
+
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid #2563eb;
     outline-offset: 3px;
 }
 
+
+/* HERO */
+
+.hero {
+    padding: 36px;
+    color: white;
+    background: #4a2803;
+    border-radius: 24px;
+}
+
 .hero img {
     display: block;
     width: 100%;
-    max-width: 640px;
+    max-width: 420px;
     height: auto;
-    margin-top: 24px;
+    margin: 24px auto 0;
+    border-radius: 16px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* BUTTON */
+
+button {
+    padding: 12px 18px;
+    color: #4a2803;
+    font-weight: 700;
+    cursor: pointer;
+    background: white;
+    border: 0;
+    border-radius: 999px;
+}
+
+
+/* IMAGE */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* PRODUCT */
+.gallery-list {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-behavior: smooth;
 }
 
 .product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin-top: 20px;
 }
 
 .product-card {
     padding: 20px;
-    margin-bottom: 16px;
     background: white;
     border: 1px solid #eee;
     border-radius: 12px;
@@ -141,12 +165,78 @@ button:focus-visible {
     font-weight: 700;
 }
 
-.site-footer {
-    padding: 24px 20px;
-    color: white;
-    text-align: center;
-    background: #2f2118;
+.product-card figure img {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
 }
+
+
+/* FIGURE */
+
+figure {
+    margin: 0 0 24px;
+}
+
+figcaption {
+    margin-top: 8px;
+    color: #6b5b52;
+    line-height: 1.5;
+}
+
+
+/* GALLERY */
+
+.media-card {
+    flex: 0 0 400px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+
+.media-card img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+
+/* TABLE */
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    background: white;
+    border-collapse: collapse;
+}
+
+caption {
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #dccbbc;
+}
+
+th {
+    background: #fffaf5;
+}
+
+
+/* KONTAK */
+
 .kontak {
     padding: 24px;
     margin-top: 40px;
@@ -163,4 +253,27 @@ button:focus-visible {
 .kontak a:focus-visible {
     outline: 3px solid #2563eb;
     outline-offset: 3px;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+    padding: 24px 20px;
+    color: white;
+    text-align: center;
+    background: #2f2118;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-list {
+        grid-template-columns: 1fr;
+    }
 }
