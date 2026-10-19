@@ -32,3 +32,4 @@ document.querySelectorAll(".nav").forEach(function (nav) {
     }
   });
 });
+
