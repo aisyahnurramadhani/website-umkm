@@ -22,7 +22,7 @@ document.querySelectorAll(".nav").forEach(function (nav) {
       toggle.setAttribute("aria-label", "Buka menu navigasi");
     });
   });
-  // Tutup menu dengan tombol Escape
+  // Tutup menu 
   nav.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       menu.classList.remove("is-open");
