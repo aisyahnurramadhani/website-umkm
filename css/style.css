@@ -196,7 +196,7 @@ fieldset { min-width: 0; padding: var(--space-3); margin: 0; border: 1px solid v
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Layar sempit: maksimal 639px */
+/* Layar sempit */
 @media (max-width: 39.999rem) {
   .nav {
     flex-direction: row;
@@ -235,7 +235,7 @@ fieldset { min-width: 0; padding: var(--space-3); margin: 0; border: 1px solid v
     padding: 10px 12px;
   }
 
-  /* Animasi hamburger menjadi tanda X */
+  
   .nav-toggle[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
@@ -249,7 +249,6 @@ fieldset { min-width: 0; padding: var(--space-3); margin: 0; border: 1px solid v
   }
 }
 
-/* Hormati pengaturan pengurangan animasi */
 @media (prefers-reduced-motion: reduce) {
   .nav-toggle span {
     transition: none;

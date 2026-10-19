@@ -14,7 +14,6 @@ document.querySelectorAll(".nav").forEach(function (nav) {
       isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
     );
   });
-
   // Tutup menu setelah tautan dipilih
   menu.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
@@ -23,7 +22,6 @@ document.querySelectorAll(".nav").forEach(function (nav) {
       toggle.setAttribute("aria-label", "Buka menu navigasi");
     });
   });
-
   // Tutup menu dengan tombol Escape
   nav.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
