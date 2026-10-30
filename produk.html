@@ -7,6 +7,7 @@
   <title>Produk Aisyah Cake - Website UMKM</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/nav.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#konten">Lewati ke konten utama</a>
@@ -36,25 +37,13 @@
         <li>Apem</li><li>Kamir</li><li>Kue Dongkal</li><li>Ogel Ogel</li>
       </ul>
     </section>
-    <section class="product-prices" aria-labelledby="harga-title">
-      <h2 id="harga-title">Daftar Harga</h2>
-      <div class="table-wrapper" tabindex="0" role="region" aria-label="Tabel daftar harga produk yang dapat digulir horizontal">
-        <table>
-          <caption>Daftar harga produk Aisyah Cake</caption>
-          <thead><tr><th scope="col">Kategori</th><th scope="col">Produk</th><th scope="col">Harga</th></tr></thead>
-          <tbody>
-            <tr><th scope="rowgroup" rowspan="3">Apem</th><td>Apem Original</td><td>Rp3.000 / pcs</td></tr>
-            <tr><td>Apem Isi Matcha</td><td>Rp4.000 / pcs</td></tr>
-            <tr><td>Apem Isi Selai Nanas</td><td>Rp4.000 / pcs</td></tr>
-            <tr><th scope="rowgroup" rowspan="4">Kamir</th><td>Kamir Original</td><td>Rp3.000 / pcs</td></tr>
-            <tr><td>Kamir Isi Khunafa</td><td>Rp5.000 / pcs</td></tr>
-            <tr><td>Kamir Isi Matcha</td><td>Rp4.500 / pcs</td></tr>
-            <tr><td>Kamir Isi Selai Nanas</td><td>Rp3.500 / pcs</td></tr>
-            <tr><th scope="rowgroup" rowspan="2">Kue Dongkal</th><td>Kue Dongkal Original</td><td>Rp10.000 / box</td></tr>
-            <tr><td>Kue Dongkal Pandan</td><td>Rp12.000 / box</td></tr>
-            <tr><th scope="row">Ogel Ogel</th><td>Ogel Ogel Original</td><td>Rp10.000 / box</td></tr>
-          </tbody>
-        </table>
+    <section class="product-prices" aria-labelledby="produk-title">
+      <h2 id="produk-title">Daftar Produk</h2>
+      <p class="product-intro">
+        Pilih berbagai varian kue tradisional favorit dari Aisyah Cake.
+      </p>
+      <div id="produk-dinamis" class="product-grid">
+        <!-- card ditampilkn melalui js -->
       </div>
     </section>
   </main>
