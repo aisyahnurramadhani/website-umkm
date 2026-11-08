@@ -1,5 +1,6 @@
-
 "use strict";
+
+//DATA PRODUK UMKM (ARRAY OF OBJECT)
 const produkUMKM = [
   {
     nama: "Apem Original",
@@ -69,7 +70,7 @@ const produkUMKM = [
     kategori: "Kue Dongkal",
     harga: 10000,
     satuan: "box",
-    stok: 12,
+    stok: 5,
     unggulan: true,
     deskripsi: "Kue dongkal tradisional."
   },
@@ -93,60 +94,129 @@ const produkUMKM = [
   }
 ];
 
-console.table(produkUMKM);
-const formatRupiah = (harga) => {
+//FUNCTION FORMAT RUPIAH
+function formatRupiah(nilai) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0
-  }).format(harga);
-};
-
-function renderProduk() {
-  const container = document.querySelector("#produk-dinamis");
-  if (!container) return;
-  let hasilProduk = "";
-  produkUMKM.forEach((produk) => {
-    // status stok
-    let statusStok;
-    let kelasStok;
-    if (produk.stok > 0) {
-      statusStok = `Tersedia (${produk.stok})`;
-      kelasStok = "stock-available";
-    } else {
-      statusStok = "Habis (0)";
-      kelasStok = "stock-empty";
-    }
-    // produk unggulan
-    let labelProduk;
-    if (produk.unggulan === true) {
-      labelProduk = "Produk Unggulan";
-    } else {
-      labelProduk = "Produk Reguler";
-    }
-    // card produk
-    hasilProduk += `
-      <article class="product-card">
-        <span class="product-label">
-          ${labelProduk}
-        </span>
-        <p class="product-category">
-          ${produk.kategori}
-        </p>
-        <h3>${produk.nama}</h3>
-        <p class="product-description">
-          ${produk.deskripsi}
-        </p>
-        <p class="product-price">
-          ${formatRupiah(produk.harga)} / ${produk.satuan}
-        </p>
-        <p class="product-stock ${kelasStok}">
-          Stok: ${statusStok}
-        </p>
-      </article>
-    `;
-  });
-  container.innerHTML = hasilProduk;
-  console.log("Produk berhasil ditampilkan:", produkUMKM.length);
+  }).format(nilai);
 }
+
+//FUNCTION STATUS STOK
+function statusStok(stok) {
+  if (stok > 0) {
+    return {
+      label: `Tersedia (${stok})`,
+      class: "stock-available"
+    };
+  }
+
+  return {
+    label: "Habis (0)",
+    class: "stock-empty"
+  };
+}
+
+
+//FUNCTION MEMBUAT KARTU PRODUK
+function buatKartuProduk(produk) {
+  const stok = statusStok(produk.stok);
+
+  const labelProduk = produk.unggulan
+    ? "Produk Unggulan"
+    : "Produk Reguler";
+
+  return `
+    <article class="product-card">
+      <span class="product-label">
+        ${labelProduk}
+      </span>
+
+      <p class="product-category">
+        ${produk.kategori}
+      </p>
+
+      <h3>${produk.nama}</h3>
+
+      <p class="product-description">
+        ${produk.deskripsi}
+      </p>
+
+      <p class="product-price">
+        ${formatRupiah(produk.harga)} / ${produk.satuan}
+      </p>
+
+      <p class="product-stock ${stok.class}">
+        Stok: ${stok.label}
+      </p>
+    </article>
+  `;
+}
+
+
+//ARRAY METHOD FILTER
+const produkTersedia = produkUMKM.filter(
+  (produk) => produk.stok > 0
+);
+
+//ARRAY METHOD FIND
+const produkRekomendasi = produkUMKM.find(
+  (produk) => produk.unggulan === true
+);
+
+//ARRAY METHOD MAP
+const daftarKartuProduk = produkTersedia.map(
+  (produk) => buatKartuProduk(produk)
+);
+
+//RENDER PRODUK KE HTML
+function renderProduk() {
+  const container = document.querySelector(
+    "#produk-dinamis"
+  );
+
+  if (!container) return;
+
+  container.innerHTML = daftarKartuProduk.join("");
+
+  console.log(
+    "Jumlah produk ditampilkan:",
+    produkTersedia.length
+  );
+}
+
+//FOREACH
+produkTersedia.forEach((produk, index) => {
+  console.log(
+    `Produk ${index + 1}:`,
+    produk.nama,
+    formatRupiah(produk.harga)
+  );
+});
+
+
+//PENGUJIAN DAN DEBUGGING
+console.log("=== DATA SELURUH PRODUK ===");
+console.table(produkUMKM);
+
+console.log("=== PRODUK TERSEDIA ===");
+console.table(produkTersedia);
+
+console.log("=== PRODUK REKOMENDASI ===");
+console.log(produkRekomendasi);
+
+console.log("=== UJI FORMAT RUPIAH ===");
+console.log(formatRupiah(3000));
+
+console.log("=== UJI STATUS STOK ===");
+console.log(statusStok(10));
+console.log(statusStok(0));
+console.log(statusStok(5));
+
+console.log("=== UJI KARTU PRODUK ===");
+console.log(buatKartuProduk(produkUMKM[0]));
+
+
+//JALANKAN RENDER
 renderProduk();
